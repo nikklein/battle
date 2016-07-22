@@ -23,12 +23,13 @@ class Battlemon < Sinatra::Base
   end
 
   get '/attack' do
-    if @game.gameover
+    if @game.gameover?
       redirect '/gameover'
     else
       @game.attack(@game.opponent)
       @game.switch_turn
       erb :attack
+
     end
   end
 

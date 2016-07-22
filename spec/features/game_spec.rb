@@ -18,28 +18,19 @@ describe '#player_2' do
   end
 end
 
-
-describe '#attack' do
-    let(:mike) { Player.new('Mike') }
-    it 'deducts 10HP' do
-      game.attack(mike)
-      expect(mike.hit_points).to eq 90
-    end
-  end
-
-  describe '#current_player' do
+describe '#current_player' do
     it 'starts as player 1' do
       expect(game.current_player).to eq player_1
     end
   end
 
-  describe '#gameover' do
+describe '#gameover' do
     it 'confirms game is over when a player reaches 0HP' do
       allow(player_1).to receive(:hit_points).and_return(0)
       allow(player_2).to receive(:hit_points).and_return(0)
       expect(game.gameover?).to be true
     end
-  end
+end
 
 
 end

@@ -33,14 +33,16 @@ attr_reader :current_player, :opponent, :gameover, :players
   end
 
   def gameover?
-    current_player.hit_points == 0 || opponent.hit_points == 0
+    current_player.hit_points <= 0 || opponent.hit_points <= 0
   end
 
   private
 
   def deduct_hp(player)
-    player.hit_points -= 10
+    player.hit_points -= rand(30)
+
   end
+
 
 
 end
