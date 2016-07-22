@@ -4,20 +4,19 @@ require_relative 'player'
 
 class Game
 
-attr_reader :current_player, :opponent, :gameover
+attr_reader :current_player, :opponent, :gameover, :players
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @current_player = player_1
-    @gameover = false
   end
 
-  def player_1
-    @players.first
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
   end
 
-  def player_2
-    @players.last
+  def self.instance
+    @game
   end
 
   def attack(player)
@@ -33,14 +32,14 @@ attr_reader :current_player, :opponent, :gameover
     (@players - [@current_player])[0]
   end
 
-  def gameover
-    @gameover = true if current_player.hit_points == 0 || opponent.hit_points == 0
+  def gameover?
+    current_player.hit_points == 0 || opponent.hit_points == 0
   end
 
   private
 
   def deduct_hp(player)
-    player.hit_points -= 50
+    player.hit_points -= 10
   end
 
 

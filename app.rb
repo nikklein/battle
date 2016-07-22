@@ -7,21 +7,23 @@ class Battlemon < Sinatra::Base
     erb :index
   end
 
+  before do
+  @game = Game.instance
+  end
+
   post '/names' do
     player_1 = Player.new(params[:player_1_name].capitalize)
     player_2 = Player.new(params[:player_2_name].capitalize)
-    $game = Game.new(player_1, player_2)
+    @game = Game.create(player_1, player_2)
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
     erb :play
   end
 
   get '/attack' do
-    @game = $game
-    if $game.gameover
+    if @game.gameover
       redirect '/gameover'
     else
       @game.attack(@game.opponent)
@@ -38,6 +40,5 @@ class Battlemon < Sinatra::Base
     erb :battle
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end

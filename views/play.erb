@@ -3,9 +3,9 @@
   <link rel='stylesheet' href='battlemon.css' media='screen' title='no title' charset='utf-8'>
 </head>
 <body class = "play_page">
-  <%= @game.player_1.name %> vs. <%= @game.player_2.name %>
+  <%= @game.players.first.name %> vs. <%= @game.players.last.name %>
 <br>
-<%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP - <%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
+<%= @game.players.first.name %>: <%= @game.players.last.hit_points %>HP - <%= @game.players.last.name %>: <%= @game.players.last.hit_points %>HP
 <br>
 <%= @game.current_player.name %>'s turn
 <a href="/attack">Attack!</a>

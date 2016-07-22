@@ -8,13 +8,13 @@ describe Game do
 
 describe '#player_1' do
   it 'retrieves the first player' do
-    expect(game.player_1).to eq player_1
+    expect(game.players.first).to eq player_1
   end
 end
 
 describe '#player_2' do
   it 'retrieves the second player' do
-    expect(game.player_2).to eq player_2
+    expect(game.players.last).to eq player_2
   end
 end
 
@@ -35,15 +35,9 @@ describe '#attack' do
 
   describe '#gameover' do
     it 'confirms game is over when a player reaches 0HP' do
-      #sign_in_and_play
       allow(player_1).to receive(:hit_points).and_return(0)
       allow(player_2).to receive(:hit_points).and_return(0)
-      # visit('/')
-      # fill_in :player_1_name, with: ''
-      # fill_in :player_2_name, with: 'Player 2'
-      # click_button 'Submit'
-      #19.times{attack_and_confirm}
-      expect(game.gameover).to be true
+      expect(game.gameover?).to be true
     end
   end
 
