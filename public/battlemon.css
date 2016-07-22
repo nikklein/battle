@@ -19,11 +19,15 @@ body.index_page {
 body.attack_page {
   background: url(http://i.giphy.com/bqrSWsK94zdpS.gif) no-repeat center center;
   background-size: cover;
+  font-family: 'Indie Flower';
+  font-size: 35
 }
 
 body.play_page {
   background: url(http://vignette2.wikia.nocookie.net/pokemon/images/1/1c/Ethan_Donphan.png/revision/latest?cb=20150605233723) no-repeat center center;
   background-size: cover;
+  font-family: 'Indie Flower';
+  font-size: 35
 }
 
 body.gameover_page {

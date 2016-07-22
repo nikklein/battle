@@ -1,11 +1,12 @@
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='battlemon.css' media='screen' title='no title' charset='utf-8'>
-</head>
+  </head>
 <body class = "attack_page">
-<%= @game.opponent.name %> attacked <%= @game.current_player.name %>!
-<br><br>
-It's super effective!
-<br><br>
+  <%= @game.opponent.name %> attacked <%= @game.current_player.name %>!
+  <br><br>
+    It's super effective!
+  <br><br>
 <%= @game.current_player.name %> has <%= @game.current_player.hit_points %>HP left
 <form action='/play'>
   <input type='submit' value='OK'>

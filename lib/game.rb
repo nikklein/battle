@@ -40,7 +40,7 @@ attr_reader :current_player, :opponent, :gameover
   private
 
   def deduct_hp(player)
-    player.hit_points -= 10
+    player.hit_points -= 50
   end
 
 
